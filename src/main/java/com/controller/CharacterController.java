@@ -2,8 +2,8 @@ package com.controller;
 
 
 import com.model.CharacterDetails;
-import com.model.Characters;
 import com.model.CharacterResponse;
+import com.model.Characters;
 import com.service.RickAndMortyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
