@@ -1,0 +1,10 @@
+version: '3'
+services:
+  rick-and-morty-app:
+    image: openjdk:11-jdk-slim
+    container_name: rick-and-morty-app-container
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./target/RickAndMortyApp.jar:/app/RickAndMortyApp.jar
+    command: [ "java", "-jar", "/app/RickAndMortyApp.jar" ]
