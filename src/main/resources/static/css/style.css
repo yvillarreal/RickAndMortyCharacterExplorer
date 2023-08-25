@@ -1,0 +1,51 @@
+/* Estilo para fijar la barra de búsqueda en la parte superior */
+.form-group.fixed-search {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 10px;
+}
+
+
+/* Margen superior para espacio entre la barra de búsqueda fija y las tarjetas */
+.row.card-row {
+    margin-top: 60px;
+}
+
+/* Estilos de las tarjetas de personajes */
+.card {
+    border: 1px solid #e5e5e5;
+}
+
+.card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+/* Estilo para el botón de búsqueda */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Estilos para centrar la imagen */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
