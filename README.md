@@ -6,20 +6,22 @@ Esta es una aplicación web que utiliza la API de Rick and Morty para mostrar in
 
 ## Tecnologías Utilizadas 💻
 
-- Java Spring Boot
+- Java
+- Maven 
+- Spring Boot
 - Thymeleaf
 - Bootstrap
 - HTML
 - CSS
 
-## Cómo Iniciar 🚀
+## ¿Cómo Iniciar? 🚀
 
 1. Clona este repositorio a tu máquina local.
 2. Asegúrate de tener Java JDK y Maven instalados.
 3. Abre el proyecto en tu IDE de preferencia.
 4. Ejecuta la aplicación desde el archivo `RickAndMortyApplication.java`.
 
-## Cómo Usar 👩‍💻
+## ¿Cómo Usar? 👩‍💻
 
 1. Accede a `http://localhost:8082` en tu navegador web. (Puedes modificar el puerto en el archivo _application.properties_)
 2. Utiliza la barra de búsqueda para buscar personajes de Rick and Morty.
