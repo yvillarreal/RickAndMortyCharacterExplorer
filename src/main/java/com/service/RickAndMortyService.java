@@ -2,7 +2,6 @@ package com.service;
 
 import com.model.CharacterDetails;
 import com.model.CharacterResponse;
-import com.model.SingleCharacter;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,11 +13,6 @@ public class RickAndMortyService {
 
     public CharacterResponse getCharacters() {
         return restTemplate.getForObject(API_URL, CharacterResponse.class);
-    }
-
-    public SingleCharacter getCharacterById(int id) {
-        String apiUrl = API_URL + "/" + id;
-        return restTemplate.getForObject(apiUrl, SingleCharacter.class);
     }
 
     public CharacterDetails getCharacterById(Long id) {

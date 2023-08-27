@@ -26,16 +26,26 @@
         <div class="card-body">
             <h5 class="card-title" th:text="${characterDetails.name}"></h5>
             <p class="card-text"><strong>Status:</strong> <span th:text="${characterDetails.status}"></span></p>
+            <p class="card-text"><strong>Origen:</strong> <span th:text="${characterDetails.origin.name}"></span></p>
 
-            <!-- Fila con dos columnas -->
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="card-text"><span th:text="${characterDetails.origin.name}"></span></p>
-                </div>
-                <div class="col-md-6">
-                    <img th:src="${characterDetails.origin.url}" class="img-fluid" alt="Other Image">
-                </div>
-            </div>
+            <!-- Tabla de Episodios -->
+            <h2 class="mt-4">Episodios</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Episodio</th>
+                    <th>Nombre</th>
+                    <th>Fecha de Emisión</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="episode : ${characterDetails.episode}">
+                    <td th:text="${episode.episode}"></td>
+                    <td th:text="${episode.name}"></td>
+                    <td th:text="${episode.air_date}"></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
 
     </div>
@@ -44,7 +54,6 @@
         <a th:href="@{/}" class="btn btn-secondary">back</a>
     </div>
 
-    <!-- Agrega aquí otros elementos o enlaces si es necesario -->
 </div>
 
 </body>
