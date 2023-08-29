@@ -20,6 +20,12 @@
     <form th:action="@{/}" method="get" class="mb-3 fixed-search">
         <div class="input-group shadow-lg rounded">
             <input type="text" class="form-control" autocomplete="false" name="search" placeholder="Search">
+            <!-- Campo de búsqueda por especie -->
+            <select class="form-control" name="species">
+                <option value="">All species</option>
+                <option value="Human">Human</option>
+                <option value="Alien">Alien</option>
+            </select>
             <div class="input-group-append">
                 <button class="btn btn-primary" type="submit">Search</button>
             </div>

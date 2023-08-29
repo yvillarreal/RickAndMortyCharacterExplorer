@@ -22,7 +22,9 @@ public class CharacterController {
     private RickAndMortyService rickAndMortyService;
 
     @GetMapping("/")
-    public String showCharacters(@RequestParam(name = "search", required = false) String searchQuery, Model model) {
+    public String showCharacters(@RequestParam(name = "search", required = false) String searchQuery,
+                                 @RequestParam(name = "species", required = false) String species,
+                                 Model model) {
         CharacterResponse characterResponse = rickAndMortyService.getCharacters();
 
         List<Characters> characters = characterResponse.getResults();
@@ -31,6 +33,13 @@ public class CharacterController {
             // Filtrar personajes por nombre
             characters = characters.stream()
                     .filter(character -> character.getName().toLowerCase().contains(searchQuery.toLowerCase()))
+                    .collect(Collectors.toList());
+        }
+
+        if (species != null && !species.isEmpty()) {
+            // Filtrar personajes por especie
+            characters = characters.stream()
+                    .filter(character -> character.getSpecies().equalsIgnoreCase(species))
                     .collect(Collectors.toList());
         }
 
