@@ -23,10 +23,10 @@ FROM openjdk:11-jdk-slim
 WORKDIR /app
 
 # Copia el archivo JAR compilado de la etapa anterior
-COPY --from=build /app/target/rickmorty-0.0.1-SNAPSHOT.jar .
+COPY --from=build /app/target/rickmorty.jar .
 
 # Expone el puerto en el que la aplicación Spring Boot se ejecuta
 EXPOSE 8080
 
 # Comando para ejecutar la aplicación
-CMD ["java", "-jar", "rickmorty-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "rickmorty.jar"]
