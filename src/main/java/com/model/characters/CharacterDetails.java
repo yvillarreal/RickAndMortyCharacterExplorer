@@ -1,6 +1,6 @@
 package com.model.characters;
 
-import com.model.episode.EpisodeDetails;
+import com.model.Location;
 import com.model.origin.Origin;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +13,9 @@ public class CharacterDetails {
     private String image;
     private String species;
     private Origin origin;
-    private EpisodeDetails episodeDetails;
+
+    private Location location;
+
+    private Characters characters;
 }
 

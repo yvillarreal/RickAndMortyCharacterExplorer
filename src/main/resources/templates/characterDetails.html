@@ -28,31 +28,14 @@
             <p class="card-text"><strong>Status:</strong> <span th:text="${characterDetails.status}"></span></p>
             <p class="card-text"><strong>Species:</strong> <span th:text="${characterDetails.species}"></span></p>
             <p class="card-text"><strong>Origen:</strong> <span th:text="${characterDetails.origin.name}"></span></p>
-
-            <!-- Tabla de Episodios -->
-            <h2 class="mt-4">Episodios</h2>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Episodio</th>
-                    <th>Nombre</th>
-                    <th>Fecha de Emisión</th>
-                </tr>
-                </thead>
-                <!--<tbody>
-                <tr th:each="details : ${characterDetails.episode}">
-                    <td th:text="${characterDetails.episodeDetails.episode}"></td>
-                    <td th:text="${characterDetails.episodeDetails.name}"></td>
-                    <td th:text="${characterDetails.episodeDetails.air_date}"></td>
-                </tr>
-                </tbody>-->
-            </table>
+            <p class="card-text"><strong>Location:</strong> <span th:text="${characterDetails.location.name}"></span>
+            </p>
         </div>
 
     </div>
 
     <div class="mt-3">
-        <a th:href="@{/}" class="btn btn-secondary">back</a>
+        <a th:href="@{/}" class="btn btn-primary">Back</a>
     </div>
 
 </div>

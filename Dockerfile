@@ -26,7 +26,7 @@ WORKDIR /app
 COPY --from=build /app/target/rickmorty.jar .
 
 # Expone el puerto en el que la aplicación Spring Boot se ejecuta
-EXPOSE 8080
+EXPOSE 8082
 
 # Comando para ejecutar la aplicación
 CMD ["java", "-jar", "rickmorty.jar"]
