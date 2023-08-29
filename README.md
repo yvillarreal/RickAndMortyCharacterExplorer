@@ -7,7 +7,7 @@ Esta es una aplicación web que utiliza la API de Rick and Morty para mostrar in
 ## Tecnologías Utilizadas 💻
 
 - Java
-- Maven 
+- Maven
 - Spring Boot
 - Thymeleaf
 - Bootstrap
@@ -28,6 +28,10 @@ Esta es una aplicación web que utiliza la API de Rick and Morty para mostrar in
 3. Haz clic en "Ver Detalles" en una tarjeta para obtener más información sobre un personaje.
 4. Utiliza el botón "Volver" para regresar a la vista principal.
 
+## Sitio Web En Vivo 🌐
+
+¡También puedes explorar la aplicación en vivo! Accede al sitio web en [https://rickandmortyap.onrender.com](https://rickandmortyap.onrender.com).
+
 ## ¡Diviértete Explorando! 🎉
 
-¡Espero que disfrutes explorando los personajes de Rick and Morty ¡Diviértete! 🌟
+¡Espero que disfrutes explorando los personajes de Rick and Morty! ¡Diviértete! 🌟
