@@ -1,9 +1,15 @@
 package com.service;
 
-import com.model.CharacterDetails;
-import com.model.CharacterResponse;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.model.characters.CharacterDetails;
+import com.model.characters.CharacterResponse;
+import com.model.info.Info;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.io.IOException;
 
 @Service
 public class RickAndMortyService {
@@ -19,4 +25,5 @@ public class RickAndMortyService {
         String characterUrl = API_URL + "/" + id;
         return restTemplate.getForObject(characterUrl, CharacterDetails.class);
     }
+
 }

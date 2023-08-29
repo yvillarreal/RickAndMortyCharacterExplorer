@@ -1,9 +1,10 @@
 package com.controller;
 
 
-import com.model.CharacterDetails;
-import com.model.CharacterResponse;
-import com.model.Characters;
+import com.model.characters.CharacterDetails;
+import com.model.characters.CharacterResponse;
+import com.model.characters.Characters;
+import com.model.info.Info;
 import com.service.RickAndMortyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +30,7 @@ public class CharacterController {
         if (searchQuery != null && !searchQuery.isEmpty()) {
             // Filtrar personajes por nombre
             characters = characters.stream()
-                    .filter(character -> character.name.toLowerCase().contains(searchQuery.toLowerCase()))
+                    .filter(character -> character.getName().toLowerCase().contains(searchQuery.toLowerCase()))
                     .collect(Collectors.toList());
         }
 

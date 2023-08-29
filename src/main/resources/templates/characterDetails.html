@@ -26,6 +26,7 @@
         <div class="card-body">
             <h5 class="card-title" th:text="${characterDetails.name}"></h5>
             <p class="card-text"><strong>Status:</strong> <span th:text="${characterDetails.status}"></span></p>
+            <p class="card-text"><strong>Species:</strong> <span th:text="${characterDetails.species}"></span></p>
             <p class="card-text"><strong>Origen:</strong> <span th:text="${characterDetails.origin.name}"></span></p>
 
             <!-- Tabla de Episodios -->
@@ -38,13 +39,13 @@
                     <th>Fecha de Emisión</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr th:each="episode : ${characterDetails.episode}">
-                    <td th:text="${episode.episode}"></td>
-                    <td th:text="${episode.name}"></td>
-                    <td th:text="${episode.air_date}"></td>
+                <!--<tbody>
+                <tr th:each="details : ${characterDetails.episode}">
+                    <td th:text="${characterDetails.episodeDetails.episode}"></td>
+                    <td th:text="${characterDetails.episodeDetails.name}"></td>
+                    <td th:text="${characterDetails.episodeDetails.air_date}"></td>
                 </tr>
-                </tbody>
+                </tbody>-->
             </table>
         </div>
 

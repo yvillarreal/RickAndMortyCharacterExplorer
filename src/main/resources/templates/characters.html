@@ -38,15 +38,14 @@
                 <img th:src="${character.image}" class="card-img-top" alt="Character Image">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${character.name}"></h5>
-                    <h6 class="card-title" th:text="${character.status}"></h6>
-                    <h6 class="card-title" th:text="${character.species}"></h6>
                     <a th:href="@{/characterDetails/{id}(id=${character.id})}" class="btn btn-primary">More info</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
+
+</div>
 
 </body>
 
