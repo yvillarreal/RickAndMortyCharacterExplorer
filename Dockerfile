@@ -7,6 +7,9 @@ WORKDIR /app
 # Copia el archivo pom.xml para descargar las dependencias
 COPY pom.xml .
 
+# Limpiando el proyecto
+RUN mvn clean
+
 # Descarga las dependencias (esto se almacenará en la capa de caché de Docker)
 RUN mvn dependency:go-offline
 
