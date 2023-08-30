@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <title>Rick and Morty Characters</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../static/css/style.css">
-</head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/> <!-- Enlace a tu archivo de estilos personalizado -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+</head>
 <body>
 
-<div class="container">
-    <h1 class="mb-4 text-center">Rick and Morty</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">Rick and Morty</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link bi bi-house" style="font-size: 1rem; color: cornflowerblue;" href="/"> Home</a>
+                </li>
+                <a class="nav-link bi bi-file-earmark-person" style="font-size: 1rem; color: cornflowerblue;"
+                   href="/about">
+                    About</a>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-    <!-- Formulario de búsqueda -->
-    <form th:action="@{/}" method="get" class="mb-3 fixed-search">
+<div class="container mt-4">
+
+    <!--Formulario de búsqueda-->
+    <form th:action="@{/}" method="get" class="mb-4 fixed-search">
         <div class="input-group shadow-lg rounded">
             <input type="text" class="form-control" autocomplete="false" name="search" placeholder="Search">
             <!-- Campo de búsqueda por especie -->
@@ -27,20 +46,21 @@
                 <option value="Alien">Alien</option>
             </select>
             <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">Search</button>
+                <button id="eighth"
+                        class="btn btn-primary buttonBox" type="submit">Search</button>
             </div>
         </div>
     </form>
 
-    <!-- Alerta cuando no se encuentran personajes -->
+    <!--Alerta cuando no se encuentran personajes-->
     <div th:if="${characters.size() == 0}" class="alert alert-warning" role="alert">
         No characters with the specified name were found. Try again
     </div>
 
-    <!-- Tarjetas de personajes -->
-    <div class="row">
+    <!--Tarjetas de personajes-->
+    <div class="row mt-3">
         <div th:each="character : ${characters}" class="col-md-4 mb-4">
-            <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+            <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded animate__animated animate__fadeIn">
                 <img th:src="${character.image}" class="card-img-top" alt="Character Image">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${character.name}"></h5>
@@ -50,9 +70,7 @@
         </div>
     </div>
 
-
 </div>
 
 </body>
-
 </html>

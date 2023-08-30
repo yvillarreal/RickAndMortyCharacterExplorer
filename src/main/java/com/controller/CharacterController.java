@@ -4,7 +4,6 @@ package com.controller;
 import com.model.characters.CharacterDetails;
 import com.model.characters.CharacterResponse;
 import com.model.characters.Characters;
-import com.model.info.Info;
 import com.service.RickAndMortyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,5 +52,11 @@ public class CharacterController {
         model.addAttribute("characterDetails", character);
         return "characterDetails";
     }
+
+    @GetMapping("/about")
+    public String showAboutPage() {
+        return "about"; // Retorna el nombre de la vista "about.html"
+    }
+
 
 }

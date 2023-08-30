@@ -1,7 +1,6 @@
 package com.model.characters;
 
 import com.model.Location;
-import com.model.info.Info;
 import com.model.origin.Origin;
 import lombok.Getter;
 import lombok.Setter;
