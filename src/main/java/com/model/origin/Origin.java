@@ -8,6 +8,5 @@ import lombok.Setter;
 public class Origin {
 
     private String name;
-
     private String url;
 }

@@ -10,6 +10,4 @@ public class Info {
     private int pages;
     private String next;
     private String prev;
-
-
 }

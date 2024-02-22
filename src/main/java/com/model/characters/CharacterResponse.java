@@ -11,6 +11,5 @@ import java.util.List;
 public class CharacterResponse {
     private Info info;
     private List<Characters> results;
-
 }
 

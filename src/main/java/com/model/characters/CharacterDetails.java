@@ -13,9 +13,7 @@ public class CharacterDetails {
     private String image;
     private String species;
     private Origin origin;
-
     private Location location;
-
     private Characters characters;
 }
 

@@ -9,7 +9,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </head>
 <body>
 
@@ -59,7 +58,7 @@
 
     <!--Tarjetas de personajes-->
     <div class="row mt-3">
-        <div th:each="character : ${characters}" class="col-md-4 mb-4">
+        <div th:each="character : ${characters}" class="col-sm-6 col-md-4 col-lg-3 mb-4">
             <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded animate__animated animate__fadeIn">
                 <img th:src="${character.image}" class="card-img-top" alt="Character Image">
                 <div class="card-body">
