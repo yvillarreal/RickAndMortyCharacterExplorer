@@ -26,6 +26,10 @@ public class CharacterController {
                                  Model model) {
         CharacterResponse characterResponse = rickAndMortyService.getCharacters();
 
+        // Extract pagination data
+        int currentPage = 1;
+        int totalPages = characterResponse.getInfo().getPages();
+
         List<Characters> characters = characterResponse.getResults();
 
         if (searchQuery != null && !searchQuery.isEmpty()) {
@@ -43,6 +47,15 @@ public class CharacterController {
         }
 
         model.addAttribute("characters", characters);
+        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("totalPages", totalPages);
+        return "characters";
+    }
+
+    @GetMapping("/character?page={page}")
+    public String showCharactersPage(@PathVariable Long page, Model model) {
+        Characters character = rickAndMortyService.getPage(page);
+        model.addAttribute("characters", character);
         return "characters";
     }
 
