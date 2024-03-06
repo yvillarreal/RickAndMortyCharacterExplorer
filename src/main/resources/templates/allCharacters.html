@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+
+<section class="section">
+
+    <div class="container">
+
+        <form action="/" method="get" class="mb-4">
+
+            <div class="field has-addons">
+                <div class="control">
+                    <input class="input" type="text" name="search" placeholder="Buscar por nombre">
+                </div>
+                <div class="control">
+                    <select class="input" name="species">
+                        <option value="">Todas las especies</option>
+                        <option value="Human">Humano</option>
+                        <option value="Alien">Alien</option>
+                    </select>
+                </div>
+                <div class="control">
+                    <button class="button is-primary">Buscar</button>
+                </div>
+            </div>
+
+        </form>
+
+        <div th:if="${characters.size() == 0}" class="notification is-warning">
+            No se encontraron personajes con el nombre especificado. Intenta de nuevo.
+        </div>
+
+        <div class="columns is-multiline">
+
+            <div th:each="character : ${characters}" class="column is-one-third">
+
+                <div class="card box has-shadow">
+
+                    <div class="card-image">
+
+                        <img th:src="${character.image}" alt="Imagen del personaje" class="image is-centered"></div>
+
+                    <div class="card-content">
+
+                        <div class="content">
+                            <h5 class="title is-5" th:text="${character.name}"></h5>
+                            <a th:href="@{/characterDetails/{id}(id=${character.id})}"
+                               class="button is-link has-text-centered">Más información</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="container">
+
+            <nav class="pagination is-centered is-mobile" aria-label="Paginación">
+
+                <ul th:if="${page > 1}">
+                    <li class="page-item">
+                        <a class="page-link" th:href="@{/page=${page - 1}}">Anterior</a>
+                    </li>
+                </ul>
+
+                <ul th:each="i : ${#numbers.sequence(1, totalPages)}">
+                    <li class="page-item" th:class="${page == i ? 'is-active' : ''}">
+                        <a class="page-link" th:href="@{/page={id}(id=${i})}">
+                            <span th:text="${i} "></span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul th:if="${page < totalPages}">
+                    <li class="page-item">
+                        <a class="page-link" th:href="@{/page=${page + 1}}">Siguiente</a>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+
+</html>

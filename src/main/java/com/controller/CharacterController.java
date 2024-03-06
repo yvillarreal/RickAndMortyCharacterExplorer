@@ -23,11 +23,11 @@ public class CharacterController {
     @GetMapping("/")
     public String showCharacters(@RequestParam(name = "search", required = false) String searchQuery,
                                  @RequestParam(name = "species", required = false) String species,
+                                 @RequestParam(name = "page", defaultValue = "1") int page,
                                  Model model) {
         CharacterResponse characterResponse = rickAndMortyService.getCharacters();
 
         // Extract pagination data
-        int currentPage = 1;
         int totalPages = characterResponse.getInfo().getPages();
 
         List<Characters> characters = characterResponse.getResults();
@@ -47,9 +47,9 @@ public class CharacterController {
         }
 
         model.addAttribute("characters", characters);
-        model.addAttribute("currentPage", currentPage);
+        model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", totalPages);
-        return "characters";
+        return "allCharacters";
     }
 
     @GetMapping("/characterDetails/{id}")
@@ -57,6 +57,21 @@ public class CharacterController {
         CharacterDetails character = rickAndMortyService.getCharacterById(id);
         model.addAttribute("characterDetails", character);
         return "characterDetails";
+    }
+
+    @GetMapping("/page={page}")
+    public String showCharactersByPage(@PathVariable int page, Model model) {
+        CharacterResponse characterResponse = rickAndMortyService.getPage(page);
+
+        // Extract pagination data
+        int totalPages = characterResponse.getInfo().getPages();
+
+        List<Characters> characters = characterResponse.getResults();
+
+        model.addAttribute("characters", characters);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", totalPages);
+        return "allCharacters";
     }
 
     @GetMapping("/about")
