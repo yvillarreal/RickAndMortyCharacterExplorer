@@ -52,13 +52,6 @@ public class CharacterController {
         return "characters";
     }
 
-    @GetMapping("/character?page={page}")
-    public String showCharactersPage(@PathVariable Long page, Model model) {
-        Characters character = rickAndMortyService.getPage(page);
-        model.addAttribute("characters", character);
-        return "characters";
-    }
-
     @GetMapping("/characterDetails/{id}")
     public String showCharacterDetails(@PathVariable Long id, Model model) {
         CharacterDetails character = rickAndMortyService.getCharacterById(id);
